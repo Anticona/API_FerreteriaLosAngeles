@@ -67,4 +67,19 @@ public class CategoriaController {
         serviciocategoria.delete(objcurso);
         return "redirect:/mostrarcategoria?elimino";
     }
+    
+    @GetMapping("/habilitarcategoria/{id}")
+    public String HabilitarCategoria(@PathVariable Long id, Model modelo) {
+        CategoriaEntity objcurso = serviciocategoria.findById(id).get();
+        serviciocategoria.enable(objcurso);
+        return "redirect:/mostrarcategoria?habilito";
+    }
+
+    @GetMapping("/deshabilitarcategoria/{id}")
+    public String DeshabilitarCategoria(@PathVariable Long id, Model modelo) {
+        CategoriaEntity objcurso = serviciocategoria.findById(id).get();
+        serviciocategoria.delete(objcurso);
+        return "redirect:/mostrarcategoria?deshabilito";
+    }
+    
 }
