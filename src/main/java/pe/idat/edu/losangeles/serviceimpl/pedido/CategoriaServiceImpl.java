@@ -54,4 +54,11 @@ public class CategoriaServiceImpl implements CategoriaService{
         return repositorio.save(objcategoria);
     }
 
+    @Override
+    public CategoriaEntity enable(CategoriaEntity c) {
+        CategoriaEntity objcategoria=repositorio.getById(c.getIdcategoria());
+        objcategoria.setEstado(true);
+        return repositorio.save(objcategoria);
+    }
+
 }

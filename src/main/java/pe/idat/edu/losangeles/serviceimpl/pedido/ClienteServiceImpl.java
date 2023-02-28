@@ -54,4 +54,11 @@ public class ClienteServiceImpl implements ClienteService{
         return repositorio.save(objcliente);
     }
 
+    @Override
+    public ClienteEntity enable(ClienteEntity c) {
+        ClienteEntity objcliente=repositorio.getById(c.getIdcliente());
+        objcliente.setEstado(true);
+        return repositorio.save(objcliente);
+    }
+
 }

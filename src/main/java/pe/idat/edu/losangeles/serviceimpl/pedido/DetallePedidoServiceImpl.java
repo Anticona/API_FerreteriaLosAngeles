@@ -54,4 +54,11 @@ public class DetallePedidoServiceImpl implements DetallePedidoService{
         return repositorio.save(objdetalle);
     }
 
+    @Override
+    public DetallePedidoEntity enable(DetallePedidoEntity d) {
+        DetallePedidoEntity objdetalle=repositorio.getById(d.getIddetallepedido());
+        objdetalle.setEstado(true);
+        return repositorio.save(objdetalle);
+    }
+
 }

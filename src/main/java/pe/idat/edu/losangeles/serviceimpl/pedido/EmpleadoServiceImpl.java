@@ -53,4 +53,11 @@ public class EmpleadoServiceImpl implements EmpleadoService{
         objempleado.setEstado(false);
         return repositorio.save(objempleado);
     }
+
+    @Override
+    public EmpleadoEntity enable(EmpleadoEntity e) {
+        EmpleadoEntity objempleado=repositorio.getById(e.getIdempleado());
+        objempleado.setEstado(true);
+        return repositorio.save(objempleado);
+    }
 }

@@ -53,4 +53,11 @@ public class MarcaServiceImpl implements MarcaService{
         objmarca.setEstado(false);
         return repositorio.save(objmarca);
     }
+
+    @Override
+    public MarcaEntity enable(MarcaEntity m) {
+        MarcaEntity objmarca=repositorio.getById(m.getIdmarca());
+        objmarca.setEstado(true);
+        return repositorio.save(objmarca);
+    }
 }

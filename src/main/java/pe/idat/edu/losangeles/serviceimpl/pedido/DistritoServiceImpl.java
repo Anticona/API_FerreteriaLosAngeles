@@ -54,4 +54,11 @@ public class DistritoServiceImpl implements DistritoService{
         return repositorio.save(objdistrito);
     }
 
+    @Override
+    public DistritoEntity enable(DistritoEntity d) {
+        DistritoEntity objdistrito=repositorio.getById(d.getIddistrito());
+        objdistrito.setEstado(true);
+        return repositorio.save(objdistrito);
+    }
+
 }

@@ -53,4 +53,11 @@ public class ProductoServiceImpl implements ProductoService{
         objproducto.setEstado(false);
         return repositorio.save(objproducto);
     }
+
+    @Override
+    public ProductoEntity enable(ProductoEntity p) {
+        ProductoEntity objproducto=repositorio.getById(p.getIdproducto());
+        objproducto.setEstado(true);
+        return repositorio.save(objproducto);
+    }
 }

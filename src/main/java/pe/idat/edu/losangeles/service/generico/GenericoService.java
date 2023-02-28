@@ -17,4 +17,5 @@ public interface GenericoService<T> {
     Optional<T> findById(Long id);
     T update(T t);
     T delete(T t);
+    T enable(T t);
 }

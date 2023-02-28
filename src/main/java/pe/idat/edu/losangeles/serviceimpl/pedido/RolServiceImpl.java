@@ -54,4 +54,11 @@ public class RolServiceImpl implements RolService{
         objrol.setEstado(false);
         return repositorio.save(objrol);
     }
+
+    @Override
+    public RolEntity enable(RolEntity r) {
+        RolEntity objrol=repositorio.getById(r.getIdrol());
+        objrol.setEstado(true);
+        return repositorio.save(objrol);
+    }
 }

@@ -53,4 +53,11 @@ public class PedidoServiceImpl implements PedidoService{
         objpedido.setEstado(false);
         return repositorio.save(objpedido);
     }
+
+    @Override
+    public PedidoEntity enable(PedidoEntity p) {
+        PedidoEntity objpedido=repositorio.getById(p.getIdpedido());
+        objpedido.setEstado(true);
+        return repositorio.save(objpedido);
+    }
 }
