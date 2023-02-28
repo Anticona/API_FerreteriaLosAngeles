@@ -9,6 +9,7 @@ import pe.idat.edu.losangeles.service.generico.GenericoService;
  *
  * @author Sebastian
  */
+
 public interface RolService extends GenericoService<RolEntity>{
 
 }

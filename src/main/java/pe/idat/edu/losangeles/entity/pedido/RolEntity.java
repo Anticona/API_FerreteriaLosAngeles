@@ -6,7 +6,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.MappedSuperclass;
 import jakarta.persistence.Table;
 import java.io.Serializable;
 import lombok.AllArgsConstructor;
@@ -25,7 +24,7 @@ import pe.idat.edu.losangeles.entity.base.NombreEntity;
 @AllArgsConstructor
 @Data
 @EqualsAndHashCode(callSuper = false)
-@Entity(name = "RolEnity")
+@Entity(name = "RolEntity")
 @Table(name = "rol")
 public class RolEntity extends NombreEntity implements Serializable{
     
