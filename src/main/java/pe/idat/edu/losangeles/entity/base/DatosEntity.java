@@ -44,7 +44,5 @@ public class DatosEntity extends EstadoEntity{
     @Size(min=10,max=60,message = "el email debe tener como maximo {max} letras")
     private String email;
     @Column(name="dni",length = 8,nullable = false)
-    @NotEmpty(message = "Debe de ingresar su dni")
-    @Size(min=8,max=8,message = "el dni debe tener como {max} digitos")
     private int dni;
 }
