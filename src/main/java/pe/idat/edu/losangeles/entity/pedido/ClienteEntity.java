@@ -40,4 +40,8 @@ public class ClienteEntity extends DatosEntity implements Serializable{
     @ManyToOne
     @JoinColumn(name="iddistrito", nullable = false)
     private DistritoEntity iddistrito;
+    
+    @ManyToOne
+    @JoinColumn(name="idusuario", nullable = false)
+    private UsuarioEntity idusuario;
 }
