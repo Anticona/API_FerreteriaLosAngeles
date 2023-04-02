@@ -1,5 +1,5 @@
 
-package pe.idat.edu.losangeles.entity.pedido;
+package pe.idat.edu.losangeles.entity.seguridad;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
