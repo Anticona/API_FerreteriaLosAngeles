@@ -12,51 +12,51 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import pe.idat.edu.losangeles.entity.seguridad.RolEntity;
-import pe.idat.edu.losangeles.service.seguridad.RolService;
+import pe.idat.edu.losangeles.entity.seguridad.UsuarioEntity;
+import pe.idat.edu.losangeles.service.seguridad.UsuarioService;
+
 
 /**
  *
  * @author Sebastian
  */
-
 @RestController
-@RequestMapping("/rol")
-public class RolRestController {
+@RequestMapping("/usuario")
+public class UsuarioRestController {
 
     @Autowired
-    private RolService servicio;
+    private UsuarioService servicio;
     
     @GetMapping
-    public List<RolEntity> findAll(){
+    public List<UsuarioEntity> findAll(){
         return servicio.findAll();
     }
       
     @GetMapping("/custom")
-    public List<RolEntity> findAllCustom(){
+    public List<UsuarioEntity> findAllCustom(){
         return servicio.findAllCustom();
     }
     
     @GetMapping("/{id}")
-    public Optional<RolEntity> findById(@PathVariable Long id){
+    public Optional<UsuarioEntity> findById(@PathVariable Long id){
         return servicio.findById(id);
     }
     
     @PostMapping
-    public RolEntity add(@RequestBody RolEntity r){
-        return servicio.add(r);
+    public UsuarioEntity add(@RequestBody UsuarioEntity u){
+        return servicio.add(u);
     }
     
     @PutMapping("/{id}")
-    public RolEntity update(@PathVariable long id,@RequestBody RolEntity r){
-        r.setIdrol(id);
-        return servicio.update(r);
+    public UsuarioEntity update(@PathVariable long id,@RequestBody UsuarioEntity u){
+        u.setIdusuario(id);
+        return servicio.update(u);
     }
     
     @DeleteMapping("/{id}")
-    public RolEntity delete(@PathVariable long id){
-        RolEntity objrol = new RolEntity();
-        objrol.setIdrol(id);
-        return servicio.delete(RolEntity.builder().idrol(id).build());
+    public UsuarioEntity delete(@PathVariable long id){
+        UsuarioEntity objusuario = new UsuarioEntity();
+        objusuario.setIdusuario(id);
+        return servicio.delete(UsuarioEntity.builder().idusuario(id).build());
     }
 }
