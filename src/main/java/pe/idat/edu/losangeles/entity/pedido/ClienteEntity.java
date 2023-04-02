@@ -16,6 +16,7 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 import pe.idat.edu.losangeles.entity.base.DatosEntity;
+import pe.idat.edu.losangeles.entity.seguridad.UsuarioEntity;
 
 /**
  *
