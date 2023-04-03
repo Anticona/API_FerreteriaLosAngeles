@@ -24,45 +24,45 @@ public class CategoriaServiceImpl implements CategoriaService{
      private CategoriaRepository repositorio;
     
     @Autowired
-    private GenericoMapper<CategoriaEntity, CategoriaDTO> categoriamapper;
+    private GenericoMapper<CategoriaEntity, CategoriaDTO> mapper;
 
 
     @Override
     public List<CategoriaDTO> findAll() {
         List<CategoriaEntity> lista = repositorio.findAll();
-        return categoriamapper.ConvertirListaDTO(lista, CategoriaDTO.class);
+        return mapper.ConvertirListaDTO(lista, CategoriaDTO.class);
     }
 
     @Override
     public List<CategoriaDTO> findAllCustom() {
         List<CategoriaEntity> lista = repositorio.findAllCustom();
-        return categoriamapper.ConvertirListaDTO(lista, CategoriaDTO.class);
+        return mapper.ConvertirListaDTO(lista, CategoriaDTO.class);
     }
 
     @Override
     public CategoriaDTO add(CategoriaDTO c) {
-        CategoriaEntity objcategoria = categoriamapper.ConvertirEntity(c, CategoriaEntity.class);
-        return categoriamapper.ConvertirDTO(repositorio.save(objcategoria), CategoriaDTO.class);
+        CategoriaEntity objcategoria = mapper.ConvertirEntity(c, CategoriaEntity.class);
+        return mapper.ConvertirDTO(repositorio.save(objcategoria), CategoriaDTO.class);
     }
 
     @Override
     public CategoriaDTO findById(Long id) {
         CategoriaEntity lista = repositorio.findById(id).get();
-        return categoriamapper.ConvertirDTO(lista, CategoriaDTO.class);    
+        return mapper.ConvertirDTO(lista, CategoriaDTO.class);    
     }
     
     @Override
     public CategoriaDTO update(CategoriaDTO c) {
         CategoriaEntity objcategoria = repositorio.getById(c.getIdcategoria());
         BeanUtils.copyProperties(c, objcategoria);
-        return categoriamapper.ConvertirDTO(repositorio.save(objcategoria), CategoriaDTO.class);
+        return mapper.ConvertirDTO(repositorio.save(objcategoria), CategoriaDTO.class);
     }
 
     @Override
     public CategoriaDTO delete(CategoriaDTO c) {
         CategoriaEntity objcategoria = repositorio.getById(c.getIdcategoria());
         objcategoria.setEstado(false);
-        return categoriamapper.ConvertirDTO(repositorio.save(objcategoria), CategoriaDTO.class);
+        return mapper.ConvertirDTO(repositorio.save(objcategoria), CategoriaDTO.class);
 
     }
 
@@ -70,7 +70,7 @@ public class CategoriaServiceImpl implements CategoriaService{
     public CategoriaDTO enable(CategoriaDTO c) {
         CategoriaEntity objcategoria = repositorio.getById(c.getIdcategoria());
         objcategoria.setEstado(true);
-        return categoriamapper.ConvertirDTO(repositorio.save(objcategoria), CategoriaDTO.class);
+        return mapper.ConvertirDTO(repositorio.save(objcategoria), CategoriaDTO.class);
     }
 
 
