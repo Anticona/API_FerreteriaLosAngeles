@@ -2,7 +2,6 @@
 package pe.idat.edu.losangeles.restcontroller;
 
 import java.util.List;
-import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,7 +11,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import pe.idat.edu.losangeles.entity.pedido.MarcaEntity;
+import pe.idat.edu.losangeles.entity.dto.pedido.MarcaDTO;
 import pe.idat.edu.losangeles.service.pedido.MarcaService;
 
 /**
@@ -27,35 +26,35 @@ public class MarcaRestController {
     private MarcaService servicio;
     
     @GetMapping
-    public List<MarcaEntity> findAll(){
+    public List<MarcaDTO> findAll(){
         return servicio.findAll();
     }
       
     @GetMapping("/custom")
-    public List<MarcaEntity> findAllCustom(){
+    public List<MarcaDTO> findAllCustom(){
         return servicio.findAllCustom();
     }
     
-//    @GetMapping("/{id}")
-//    public Optional<MarcaEntity> findById(@PathVariable Long id){
-//        return servicio.findById(id);
-//    }
+    @GetMapping("/{id}")
+    public MarcaDTO findById(@PathVariable Long id){
+        return servicio.findById(id);
+    }
     
     @PostMapping
-    public MarcaEntity add(@RequestBody MarcaEntity m){
+    public MarcaDTO add(@RequestBody MarcaDTO m){
         return servicio.add(m);
     }
     
     @PutMapping("/{id}")
-    public MarcaEntity update(@PathVariable long id,@RequestBody MarcaEntity m){
+    public MarcaDTO update(@PathVariable long id,@RequestBody MarcaDTO m){
         m.setIdmarca(id);
         return servicio.update(m);
     }
     
     @DeleteMapping("/{id}")
-    public MarcaEntity delete(@PathVariable long id){
-        MarcaEntity objmarca = new MarcaEntity();
+    public MarcaDTO delete(@PathVariable long id){
+        MarcaDTO objmarca = new MarcaDTO();
         objmarca.setIdmarca(id);
-        return servicio.delete(MarcaEntity.builder().idmarca(id).build());
+        return servicio.delete(MarcaDTO.builder().idmarca(id).build());
     }
 }

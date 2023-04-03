@@ -3,66 +3,74 @@ package pe.idat.edu.losangeles.serviceimpl.pedido;
 
 import java.util.List;
 import java.util.Optional;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import pe.idat.edu.losangeles.entity.dto.pedido.MarcaDTO;
 import pe.idat.edu.losangeles.entity.pedido.MarcaEntity;
 import pe.idat.edu.losangeles.repository.pedido.MarcaRepository;
 import pe.idat.edu.losangeles.service.pedido.MarcaService;
+import pe.idat.edu.losangeles.util.mapper.GenericoMapper;
 
 /**
  *
  * @author Sebastian
  */
+@RequiredArgsConstructor
 @Service
 public class MarcaServiceImpl implements MarcaService{
 
     @Autowired
      private MarcaRepository repositorio;
-
-    @Override
-    public List<MarcaEntity> findAll() {
-      return repositorio.findAll();        
-    }
-
-    @Override
-    public List<MarcaEntity> findAllCustom() {
-        return repositorio.findAllCustom();
-    }
     
+    @Autowired
+    private GenericoMapper<MarcaEntity, MarcaDTO> mapper;
+
     @Override
-    public MarcaEntity add(MarcaEntity m) {
-        return repositorio.save(m);
+    public List<MarcaDTO> findAll() {
+         List<MarcaEntity> lista = repositorio.findAll();
+        return mapper.ConvertirListaDTO(lista, MarcaDTO.class);   
     }
 
-//    @Override
-//    public Optional<MarcaEntity> findById(Long id) {
-//        return repositorio.findById(id);
-//    }
+    @Override
+    public List<MarcaDTO> findAllCustom() {
+        List<MarcaEntity> lista = repositorio.findAllCustom();
+        return mapper.ConvertirListaDTO(lista, MarcaDTO.class);
+    }
 
     @Override
-    public MarcaEntity update(MarcaEntity m) {
-        MarcaEntity objmarca=repositorio.getById(m.getIdmarca());
+    public MarcaDTO add(MarcaDTO m) {
+        MarcaEntity objcategoria = mapper.ConvertirEntity(m, MarcaEntity.class);
+        return mapper.ConvertirDTO(repositorio.save(objcategoria), MarcaDTO.class);
+    }
+
+    @Override
+    public MarcaDTO findById(Long id) {
+        MarcaEntity lista = repositorio.findById(id).get();
+        return mapper.ConvertirDTO(lista, MarcaDTO.class);  
+    }
+
+    @Override
+    public MarcaDTO update(MarcaDTO m) {
+        MarcaEntity objmarca = repositorio.getById(m.getIdmarca());
         BeanUtils.copyProperties(m, objmarca);
-        return repositorio.save(objmarca);
+        return mapper.ConvertirDTO(repositorio.save(objmarca), MarcaDTO.class);
     }
 
     @Override
-    public MarcaEntity delete(MarcaEntity m) {
-        MarcaEntity objmarca=repositorio.getById(m.getIdmarca());
+    public MarcaDTO delete(MarcaDTO m) {
+        MarcaEntity objmarca = repositorio.getById(m.getIdmarca());
         objmarca.setEstado(false);
-        return repositorio.save(objmarca);
+        return mapper.ConvertirDTO(repositorio.save(objmarca), MarcaDTO.class);
     }
 
     @Override
-    public MarcaEntity enable(MarcaEntity m) {
-        MarcaEntity objmarca=repositorio.getById(m.getIdmarca());
+    public MarcaDTO enable(MarcaDTO m) {
+        MarcaEntity objmarca = repositorio.getById(m.getIdmarca());
         objmarca.setEstado(true);
-        return repositorio.save(objmarca);
+        return mapper.ConvertirDTO(repositorio.save(objmarca), MarcaDTO.class);
     }
 
-    @Override
-    public MarcaEntity findById(Long id) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+    
 }
