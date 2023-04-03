@@ -57,4 +57,11 @@ public class DistritoRestController {
         objdistrito.setIddistrito(id);
         return servicio.delete(DistritoDTO.builder().iddistrito(id).build());
     }
+    
+    @PutMapping("/enable/{id}")
+    public DistritoDTO enable(@PathVariable long id) {
+        DistritoDTO objdistrito = new DistritoDTO();
+        objdistrito.setIddistrito(id);
+        return servicio.enable(DistritoDTO.builder().iddistrito(id).build());
+    }
 }

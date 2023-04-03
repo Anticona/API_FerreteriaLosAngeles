@@ -57,4 +57,11 @@ public class ClienteRestController {
         objcliente.setIdcliente(id);
         return servicio.delete(ClienteDTO.builder().idcliente(id).build());
     }
+    
+    @PutMapping("/enable/{id}")
+    public ClienteDTO enable(@PathVariable long id) {
+        ClienteDTO objcliente = new ClienteDTO();
+        objcliente.setIdcliente(id);
+        return servicio.enable(ClienteDTO.builder().idcliente(id).build());
+    }
 }

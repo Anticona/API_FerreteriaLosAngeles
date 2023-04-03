@@ -57,4 +57,11 @@ public class MarcaRestController {
         objmarca.setIdmarca(id);
         return servicio.delete(MarcaDTO.builder().idmarca(id).build());
     }
+    
+    @PutMapping("/enable/{id}")
+    public MarcaDTO enable(@PathVariable long id) {
+        MarcaDTO objmarca = new MarcaDTO();
+        objmarca.setIdmarca(id);
+        return servicio.enable(MarcaDTO.builder().idmarca(id).build());
+    }
 }

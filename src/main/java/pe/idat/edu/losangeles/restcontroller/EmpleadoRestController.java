@@ -57,4 +57,11 @@ public class EmpleadoRestController {
         objempleado.setIdempleado(id);
         return servicio.delete(EmpleadoDTO.builder().idempleado(id).build());
     }
+    
+    @PutMapping("/enable/{id}")
+    public EmpleadoDTO enable(@PathVariable long id) {
+        EmpleadoDTO objempleado = new EmpleadoDTO();
+        objempleado.setIdempleado(id);
+        return servicio.enable(EmpleadoDTO.builder().idempleado(id).build());
+    }
 }

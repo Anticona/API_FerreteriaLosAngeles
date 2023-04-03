@@ -58,4 +58,11 @@ public class RolRestController {
         objrol.setIdrol(id);
         return servicio.delete(RolDTO.builder().idrol(id).build());
     }
+    
+    @PutMapping("/enable/{id}")
+    public RolDTO enable(@PathVariable long id) {
+        RolDTO objdistrito = new RolDTO();
+        objdistrito.setIdrol(id);
+        return servicio.enable(RolDTO.builder().idrol(id).build());
+    }
 }

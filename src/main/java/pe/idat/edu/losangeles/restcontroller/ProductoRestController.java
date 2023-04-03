@@ -58,4 +58,11 @@ public class ProductoRestController {
         objproducto.setIdproducto(id);
         return servicio.delete(ProductoDTO.builder().idproducto(id).build());
     }
+    
+    @PutMapping("/enable/{id}")
+    public ProductoDTO enable(@PathVariable long id) {
+        ProductoDTO objproducto = new ProductoDTO();
+        objproducto.setIdproducto(id);
+        return servicio.enable(ProductoDTO.builder().idproducto(id).build());
+    }
 }

@@ -57,4 +57,11 @@ public class PedidoRestController {
         objpedido.setIdpedido(id);
         return servicio.delete(PedidoDTO.builder().idpedido(id).build());
     }
+    
+    @PutMapping("/enable/{id}")
+    public PedidoDTO enable(@PathVariable long id) {
+        PedidoDTO objpedido = new PedidoDTO();
+        objpedido.setIdpedido(id);
+        return servicio.enable(PedidoDTO.builder().idpedido(id).build());
+    }
 }

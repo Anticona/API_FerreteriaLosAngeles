@@ -35,10 +35,10 @@ public class DetallePedidoRestController {
         return servicio.findAllCustom();
     }
     
-//    @GetMapping("/{id}")
-//    public Optional<DetallePedidoEntity> findById(@PathVariable Long id){
-//        return servicio.findById(id);
-//    }
+    @GetMapping("/{id}")
+    public DetallePedidoDTO findById(@PathVariable Long id){
+        return servicio.findById(id);
+    }
     
     @PostMapping
     public DetallePedidoDTO add(@RequestBody DetallePedidoDTO d){
@@ -53,8 +53,15 @@ public class DetallePedidoRestController {
     
     @DeleteMapping("/{id}")
     public DetallePedidoDTO delete(@PathVariable long id){
-        DetallePedidoDTO objproducto = new DetallePedidoDTO();
-        objproducto.setIddetallepedido(id);
+        DetallePedidoDTO objdetallepedido = new DetallePedidoDTO();
+        objdetallepedido.setIddetallepedido(id);
         return servicio.delete(DetallePedidoDTO.builder().iddetallepedido(id).build());
+    }
+    
+    @PutMapping("/enable/{id}")
+    public DetallePedidoDTO enable(@PathVariable long id) {
+        DetallePedidoDTO objdetallepedido = new DetallePedidoDTO();
+        objdetallepedido.setIddetallepedido(id);
+        return servicio.enable(DetallePedidoDTO.builder().iddetallepedido(id).build());
     }
 }

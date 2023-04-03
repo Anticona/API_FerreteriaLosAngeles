@@ -58,4 +58,11 @@ public class UsuarioRestController {
         objusuario.setIdusuario(id);
         return servicio.delete(UsuarioDTO.builder().idusuario(id).build());
     }
+    
+    @PutMapping("/enable/{id}")
+    public UsuarioDTO enable(@PathVariable long id) {
+        UsuarioDTO objusuario = new UsuarioDTO();
+        objusuario.setIdusuario(id);
+        return servicio.enable(UsuarioDTO.builder().idusuario(id).build());
+    }
 }
