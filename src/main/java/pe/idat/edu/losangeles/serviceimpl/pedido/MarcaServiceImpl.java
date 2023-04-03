@@ -40,8 +40,8 @@ public class MarcaServiceImpl implements MarcaService{
 
     @Override
     public MarcaDTO add(MarcaDTO m) {
-        MarcaEntity objcategoria = mapper.ConvertirEntity(m, MarcaEntity.class);
-        return mapper.ConvertirDTO(repositorio.save(objcategoria), MarcaDTO.class);
+        MarcaEntity objmarca = mapper.ConvertirEntity(m, MarcaEntity.class);
+        return mapper.ConvertirDTO(repositorio.save(objmarca), MarcaDTO.class);
     }
 
     @Override
