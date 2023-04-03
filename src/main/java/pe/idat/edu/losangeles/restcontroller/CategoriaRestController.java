@@ -47,7 +47,7 @@ public class CategoriaRestController {
 
     @PutMapping("/{id}")
     public CategoriaDTO update(@PathVariable long id, @RequestBody CategoriaDTO c) {
-        c.getIdcategoria();
+        c.setIdcategoria(id);
         return servicio.update(c);
     }
 

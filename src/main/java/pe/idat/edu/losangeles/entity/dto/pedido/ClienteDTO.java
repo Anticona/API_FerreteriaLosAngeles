@@ -25,8 +25,8 @@ public class ClienteDTO {
     private String sgnombre;
     private String ptapellido;
     private String mtapellido;
-    private String email;
     private int dni;
+    private String email;
     private boolean estado;
     private DistritoEntity iddistrito;
     private UsuarioEntity idusuario;
