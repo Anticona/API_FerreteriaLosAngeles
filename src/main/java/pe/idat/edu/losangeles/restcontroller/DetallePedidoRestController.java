@@ -2,7 +2,6 @@
 package pe.idat.edu.losangeles.restcontroller;
 
 import java.util.List;
-import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,7 +11,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import pe.idat.edu.losangeles.entity.pedido.DetallePedidoEntity;
+import pe.idat.edu.losangeles.entity.dto.pedido.DetallePedidoDTO;
 import pe.idat.edu.losangeles.service.pedido.DetallePedidoService;
 
 /**
@@ -27,12 +26,12 @@ public class DetallePedidoRestController {
     private DetallePedidoService servicio;
     
     @GetMapping
-    public List<DetallePedidoEntity> findAll(){
+    public List<DetallePedidoDTO> findAll(){
         return servicio.findAll();
     }
       
     @GetMapping("/custom")
-    public List<DetallePedidoEntity> findAllCustom(){
+    public List<DetallePedidoDTO> findAllCustom(){
         return servicio.findAllCustom();
     }
     
@@ -42,20 +41,20 @@ public class DetallePedidoRestController {
 //    }
     
     @PostMapping
-    public DetallePedidoEntity add(@RequestBody DetallePedidoEntity d){
+    public DetallePedidoDTO add(@RequestBody DetallePedidoDTO d){
         return servicio.add(d);
     }
     
     @PutMapping("/{id}")
-    public DetallePedidoEntity update(@PathVariable long id,@RequestBody DetallePedidoEntity d){
+    public DetallePedidoDTO update(@PathVariable long id,@RequestBody DetallePedidoDTO d){
         d.setIddetallepedido(id);
         return servicio.update(d);
     }
     
     @DeleteMapping("/{id}")
-    public DetallePedidoEntity delete(@PathVariable long id){
-        DetallePedidoEntity objproducto = new DetallePedidoEntity();
+    public DetallePedidoDTO delete(@PathVariable long id){
+        DetallePedidoDTO objproducto = new DetallePedidoDTO();
         objproducto.setIddetallepedido(id);
-        return servicio.delete(DetallePedidoEntity.builder().iddetallepedido(id).build());
+        return servicio.delete(DetallePedidoDTO.builder().iddetallepedido(id).build());
     }
 }
