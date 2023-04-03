@@ -36,10 +36,10 @@ public class RolServiceImpl implements RolService{
         return repositorio.save(r);
     }
 
-    @Override
-    public Optional<RolEntity> findById(Long id) {
-        return repositorio.findById(id);
-    }
+//    @Override
+//    public Optional<RolEntity> findById(Long id) {
+//        return repositorio.findById(id);
+//    }
 
     @Override
     public RolEntity update(RolEntity r) {
@@ -60,5 +60,10 @@ public class RolServiceImpl implements RolService{
         RolEntity objrol=repositorio.getById(r.getIdrol());
         objrol.setEstado(true);
         return repositorio.save(objrol);
+    }
+
+    @Override
+    public RolEntity findById(Long id) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }

@@ -36,10 +36,10 @@ public class ClienteRestController {
         return servicio.findAllCustom();
     }
     
-    @GetMapping("/{id}")
-    public Optional<ClienteEntity> findById(@PathVariable Long id){
-        return servicio.findById(id);
-    }
+//    @GetMapping("/{id}")
+//    public Optional<ClienteEntity> findById(@PathVariable Long id){
+//        return servicio.findById(id);
+//    }
     
     @PostMapping
     public ClienteEntity add(@RequestBody ClienteEntity c){

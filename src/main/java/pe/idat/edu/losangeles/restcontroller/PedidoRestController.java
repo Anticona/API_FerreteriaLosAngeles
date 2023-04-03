@@ -36,10 +36,10 @@ public class PedidoRestController {
         return servicio.findAllCustom();
     }
     
-    @GetMapping("/{id}")
-    public Optional<PedidoEntity> findById(@PathVariable Long id){
-        return servicio.findById(id);
-    }
+//    @GetMapping("/{id}")
+//    public Optional<PedidoEntity> findById(@PathVariable Long id){
+//        return servicio.findById(id);
+//    }
     
     @PostMapping
     public PedidoEntity add(@RequestBody PedidoEntity p){

@@ -37,10 +37,10 @@ public class RolRestController {
         return servicio.findAllCustom();
     }
     
-    @GetMapping("/{id}")
-    public Optional<RolEntity> findById(@PathVariable Long id){
-        return servicio.findById(id);
-    }
+//    @GetMapping("/{id}")
+//    public Optional<RolEntity> findById(@PathVariable Long id){
+//        return servicio.findById(id);
+//    }
     
     @PostMapping
     public RolEntity add(@RequestBody RolEntity r){

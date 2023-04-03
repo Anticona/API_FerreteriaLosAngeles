@@ -35,10 +35,10 @@ public class EmpleadoServiceImpl implements EmpleadoService{
         return repositorio.save(e);
     }
 
-    @Override
-    public Optional<EmpleadoEntity> findById(Long id) {
-        return repositorio.findById(id);
-    }
+//    @Override
+//    public Optional<EmpleadoEntity> findById(Long id) {
+//        return repositorio.findById(id);
+//    }
 
     @Override
     public EmpleadoEntity update(EmpleadoEntity e) {
@@ -59,5 +59,10 @@ public class EmpleadoServiceImpl implements EmpleadoService{
         EmpleadoEntity objempleado=repositorio.getById(e.getIdempleado());
         objempleado.setEstado(true);
         return repositorio.save(objempleado);
+    }
+
+    @Override
+    public EmpleadoEntity findById(Long id) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }

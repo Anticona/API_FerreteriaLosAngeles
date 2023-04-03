@@ -35,10 +35,10 @@ public class ProductoServiceImpl implements ProductoService{
         return repositorio.save(p);
     }
 
-    @Override
-    public Optional<ProductoEntity> findById(Long id) {
-        return repositorio.findById(id);
-    }
+//    @Override
+//    public Optional<ProductoEntity> findById(Long id) {
+//        return repositorio.findById(id);
+//    }
 
     @Override
     public ProductoEntity update(ProductoEntity p) {
@@ -59,5 +59,10 @@ public class ProductoServiceImpl implements ProductoService{
         ProductoEntity objproducto=repositorio.getById(p.getIdproducto());
         objproducto.setEstado(true);
         return repositorio.save(objproducto);
+    }
+
+    @Override
+    public ProductoEntity findById(Long id) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }

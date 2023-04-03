@@ -32,10 +32,10 @@ public class UsuarioRolRestController {
     }
     
     
-    @GetMapping("/{id}")
-    public Optional<UsuarioRolEntity> findById(@PathVariable Long id){
-    return servicio.findById(id);
-    }
+//    @GetMapping("/{id}")
+//    public Optional<UsuarioRolEntity> findById(@PathVariable Long id){
+//    return servicio.findById(id);
+//    }
     
     @PostMapping
     public UsuarioRolEntity add(@RequestBody UsuarioRolEntity u){

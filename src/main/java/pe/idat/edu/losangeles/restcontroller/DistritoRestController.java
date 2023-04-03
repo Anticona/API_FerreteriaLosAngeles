@@ -36,10 +36,10 @@ public class DistritoRestController {
         return servicio.findAllCustom();
     }
     
-    @GetMapping("/{id}")
-    public Optional<DistritoEntity> findById(@PathVariable Long id){
-        return servicio.findById(id);
-    }
+//    @GetMapping("/{id}")
+//    public Optional<DistritoEntity> findById(@PathVariable Long id){
+//        return servicio.findById(id);
+//    }
     
     @PostMapping
     public DistritoEntity add(@RequestBody DistritoEntity d){

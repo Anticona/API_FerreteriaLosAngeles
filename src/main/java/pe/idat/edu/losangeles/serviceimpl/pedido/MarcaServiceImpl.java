@@ -35,10 +35,10 @@ public class MarcaServiceImpl implements MarcaService{
         return repositorio.save(m);
     }
 
-    @Override
-    public Optional<MarcaEntity> findById(Long id) {
-        return repositorio.findById(id);
-    }
+//    @Override
+//    public Optional<MarcaEntity> findById(Long id) {
+//        return repositorio.findById(id);
+//    }
 
     @Override
     public MarcaEntity update(MarcaEntity m) {
@@ -59,5 +59,10 @@ public class MarcaServiceImpl implements MarcaService{
         MarcaEntity objmarca=repositorio.getById(m.getIdmarca());
         objmarca.setEstado(true);
         return repositorio.save(objmarca);
+    }
+
+    @Override
+    public MarcaEntity findById(Long id) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }

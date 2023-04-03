@@ -36,10 +36,10 @@ public class EmpleadoRestController {
         return servicio.findAllCustom();
     }
     
-    @GetMapping("/{id}")
-    public Optional<EmpleadoEntity> findById(@PathVariable Long id){
-        return servicio.findById(id);
-    }
+//    @GetMapping("/{id}")
+//    public Optional<EmpleadoEntity> findById(@PathVariable Long id){
+//        return servicio.findById(id);
+//    }
     
     @PostMapping
     public EmpleadoEntity add(@RequestBody EmpleadoEntity e){

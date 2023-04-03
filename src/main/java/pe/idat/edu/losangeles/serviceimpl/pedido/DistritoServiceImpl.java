@@ -35,10 +35,10 @@ public class DistritoServiceImpl implements DistritoService{
         return repositorio.save(d);
     }
 
-    @Override
-    public Optional<DistritoEntity> findById(Long id) {
-        return repositorio.findById(id);
-    }
+//    @Override
+//    public Optional<DistritoEntity> findById(Long id) {
+//        return repositorio.findById(id);
+//    }
 
     @Override
     public DistritoEntity update(DistritoEntity d) {
@@ -59,6 +59,11 @@ public class DistritoServiceImpl implements DistritoService{
         DistritoEntity objdistrito=repositorio.getById(d.getIddistrito());
         objdistrito.setEstado(true);
         return repositorio.save(objdistrito);
+    }
+
+    @Override
+    public DistritoEntity findById(Long id) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
 }

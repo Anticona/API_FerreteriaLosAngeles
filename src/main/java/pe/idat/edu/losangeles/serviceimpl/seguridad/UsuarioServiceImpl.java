@@ -35,10 +35,10 @@ public class UsuarioServiceImpl implements UsuarioService{
         return repositorio.save(u);
     }
 
-    @Override
-    public Optional<UsuarioEntity> findById(Long id) {
-        return repositorio.findById(id);
-    }
+//    @Override
+//    public Optional<UsuarioEntity> findById(Long id) {
+//        return repositorio.findById(id);
+//    }
 
     @Override
     public UsuarioEntity update(UsuarioEntity u) {
@@ -59,6 +59,11 @@ public class UsuarioServiceImpl implements UsuarioService{
         UsuarioEntity objusuario=repositorio.getById(u.getIdusuario());
         objusuario.setEstado(true);
         return repositorio.save(objusuario);
+    }
+
+    @Override
+    public UsuarioEntity findById(Long id) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
 }

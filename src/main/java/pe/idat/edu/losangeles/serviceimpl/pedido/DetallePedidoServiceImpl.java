@@ -35,10 +35,10 @@ public class DetallePedidoServiceImpl implements DetallePedidoService{
         return repositorio.save(d);
     }
 
-    @Override
-    public Optional<DetallePedidoEntity> findById(Long id) {
-        return repositorio.findById(id);
-    }
+//    @Override
+//    public Optional<DetallePedidoEntity> findById(Long id) {
+//        return repositorio.findById(id);
+//    }
 
     @Override
     public DetallePedidoEntity update(DetallePedidoEntity d) {
@@ -59,6 +59,11 @@ public class DetallePedidoServiceImpl implements DetallePedidoService{
         DetallePedidoEntity objdetalle=repositorio.getById(d.getIddetallepedido());
         objdetalle.setEstado(true);
         return repositorio.save(objdetalle);
+    }
+
+    @Override
+    public DetallePedidoEntity findById(Long id) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
 }

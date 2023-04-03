@@ -31,10 +31,10 @@ public class UsuarioRolImpl implements UsuarioRolService{
         return repositorio.save(u);
     }
 
-    @Override
-    public Optional<UsuarioRolEntity> findById(Long id) {
-        return repositorio.findById(id);
-    }
+//    @Override
+//    public Optional<UsuarioRolEntity> findById(Long id) {
+//        return repositorio.findById(id);
+//    }
 
     @Override
     public UsuarioRolEntity update(UsuarioRolEntity u) {
@@ -55,6 +55,11 @@ public class UsuarioRolImpl implements UsuarioRolService{
 
     @Override
     public UsuarioRolEntity enable(UsuarioRolEntity t) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public UsuarioRolEntity findById(Long id) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 

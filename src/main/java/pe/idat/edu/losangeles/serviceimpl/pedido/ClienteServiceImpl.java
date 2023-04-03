@@ -35,10 +35,10 @@ public class ClienteServiceImpl implements ClienteService{
         return repositorio.save(c);
     }
 
-    @Override
-    public Optional<ClienteEntity> findById(Long id) {
-        return repositorio.findById(id);
-    }
+//    @Override
+//    public Optional<ClienteEntity> findById(Long id) {
+//        return repositorio.findById(id);
+//    }
 
     @Override
     public ClienteEntity update(ClienteEntity c) {
@@ -59,6 +59,11 @@ public class ClienteServiceImpl implements ClienteService{
         ClienteEntity objcliente=repositorio.getById(c.getIdcliente());
         objcliente.setEstado(true);
         return repositorio.save(objcliente);
+    }
+
+    @Override
+    public ClienteEntity findById(Long id) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
 }
