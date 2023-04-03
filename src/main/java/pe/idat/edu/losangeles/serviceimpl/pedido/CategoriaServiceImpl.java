@@ -63,7 +63,6 @@ public class CategoriaServiceImpl implements CategoriaService{
         CategoriaEntity objcategoria = repositorio.getById(c.getIdcategoria());
         objcategoria.setEstado(false);
         return mapper.ConvertirDTO(repositorio.save(objcategoria), CategoriaDTO.class);
-
     }
 
     @Override
