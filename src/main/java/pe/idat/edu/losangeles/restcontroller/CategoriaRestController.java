@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import pe.idat.edu.losangeles.entity.dto.pedido.CategoriaDTO;
-import pe.idat.edu.losangeles.mapper.pedido.CategoriaMapper;
 import pe.idat.edu.losangeles.service.pedido.CategoriaService;
 
 /**
@@ -25,8 +24,6 @@ public class CategoriaRestController {
 
 @Autowired
     private CategoriaService servicio;
-
-    private CategoriaMapper mapper;
 
     @GetMapping
     public List<CategoriaDTO> findAll() {
