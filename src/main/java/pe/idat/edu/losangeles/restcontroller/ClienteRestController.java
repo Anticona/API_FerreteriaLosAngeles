@@ -2,7 +2,6 @@
 package pe.idat.edu.losangeles.restcontroller;
 
 import java.util.List;
-import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,7 +11,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import pe.idat.edu.losangeles.entity.pedido.ClienteEntity;
+import pe.idat.edu.losangeles.entity.dto.pedido.ClienteDTO;
 import pe.idat.edu.losangeles.service.pedido.ClienteService;
 
 /**
@@ -27,35 +26,35 @@ public class ClienteRestController {
     private ClienteService servicio;
     
     @GetMapping
-    public List<ClienteEntity> findAll(){
+    public List<ClienteDTO> findAll(){
         return servicio.findAll();
     }
       
     @GetMapping("/custom")
-    public List<ClienteEntity> findAllCustom(){
+    public List<ClienteDTO> findAllCustom(){
         return servicio.findAllCustom();
     }
     
-//    @GetMapping("/{id}")
-//    public Optional<ClienteEntity> findById(@PathVariable Long id){
-//        return servicio.findById(id);
-//    }
+    @GetMapping("/{id}")
+    public ClienteDTO findById(@PathVariable Long id){
+        return servicio.findById(id);
+    }
     
     @PostMapping
-    public ClienteEntity add(@RequestBody ClienteEntity c){
+    public ClienteDTO add(@RequestBody ClienteDTO c){
         return servicio.add(c);
     }
     
     @PutMapping("/{id}")
-    public ClienteEntity update(@PathVariable long id,@RequestBody ClienteEntity c){
+    public ClienteDTO update(@PathVariable long id,@RequestBody ClienteDTO c){
         c.setIdcliente(id);
         return servicio.update(c);
     }
     
     @DeleteMapping("/{id}")
-    public ClienteEntity delete(@PathVariable long id){
-        ClienteEntity objcliente = new ClienteEntity();
+    public ClienteDTO delete(@PathVariable long id){
+        ClienteDTO objcliente = new ClienteDTO();
         objcliente.setIdcliente(id);
-        return servicio.delete(ClienteEntity.builder().idcliente(id).build());
+        return servicio.delete(ClienteDTO.builder().idcliente(id).build());
     }
 }
