@@ -2,7 +2,6 @@
 package pe.idat.edu.losangeles.restcontroller;
 
 import java.util.List;
-import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,7 +11,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import pe.idat.edu.losangeles.entity.seguridad.RolEntity;
+import pe.idat.edu.losangeles.entity.dto.seguridad.RolDTO;
 import pe.idat.edu.losangeles.service.seguridad.RolService;
 
 /**
@@ -28,35 +27,35 @@ public class RolRestController {
     private RolService servicio;
     
     @GetMapping
-    public List<RolEntity> findAll(){
+    public List<RolDTO> findAll(){
         return servicio.findAll();
     }
       
     @GetMapping("/custom")
-    public List<RolEntity> findAllCustom(){
+    public List<RolDTO> findAllCustom(){
         return servicio.findAllCustom();
     }
     
-//    @GetMapping("/{id}")
-//    public Optional<RolEntity> findById(@PathVariable Long id){
-//        return servicio.findById(id);
-//    }
+    @GetMapping("/{id}")
+    public RolDTO findById(@PathVariable Long id){
+        return servicio.findById(id);
+    }
     
     @PostMapping
-    public RolEntity add(@RequestBody RolEntity r){
+    public RolDTO add(@RequestBody RolDTO r){
         return servicio.add(r);
     }
     
     @PutMapping("/{id}")
-    public RolEntity update(@PathVariable long id,@RequestBody RolEntity r){
+    public RolDTO update(@PathVariable long id,@RequestBody RolDTO r){
         r.setIdrol(id);
         return servicio.update(r);
     }
     
     @DeleteMapping("/{id}")
-    public RolEntity delete(@PathVariable long id){
-        RolEntity objrol = new RolEntity();
+    public RolDTO delete(@PathVariable long id){
+        RolDTO objrol = new RolDTO();
         objrol.setIdrol(id);
-        return servicio.delete(RolEntity.builder().idrol(id).build());
+        return servicio.delete(RolDTO.builder().idrol(id).build());
     }
 }
