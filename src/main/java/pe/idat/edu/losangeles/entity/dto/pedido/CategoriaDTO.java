@@ -17,7 +17,7 @@ import lombok.experimental.SuperBuilder;
 @Data
 @JsonPropertyOrder({"idcategoria","nombre","estado"})
 public class CategoriaDTO{
-    private Long idcategoria=0L;
-    private String nombre="";
-    private boolean estado=false;
+    private Long idcategoria;
+    private String nombre;
+    private boolean estado;
 }
