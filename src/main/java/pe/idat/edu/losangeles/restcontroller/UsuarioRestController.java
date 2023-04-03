@@ -2,7 +2,6 @@
 package pe.idat.edu.losangeles.restcontroller;
 
 import java.util.List;
-import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,7 +11,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import pe.idat.edu.losangeles.entity.seguridad.UsuarioEntity;
+import pe.idat.edu.losangeles.entity.dto.seguridad.UsuarioDTO;
 import pe.idat.edu.losangeles.service.seguridad.UsuarioService;
 
 
@@ -28,35 +27,35 @@ public class UsuarioRestController {
     private UsuarioService servicio;
     
     @GetMapping
-    public List<UsuarioEntity> findAll(){
+    public List<UsuarioDTO> findAll(){
         return servicio.findAll();
     }
       
     @GetMapping("/custom")
-    public List<UsuarioEntity> findAllCustom(){
+    public List<UsuarioDTO> findAllCustom(){
         return servicio.findAllCustom();
     }
     
-//    @GetMapping("/{id}")
-//    public Optional<UsuarioEntity> findById(@PathVariable Long id){
-//        return servicio.findById(id);
-//    }
+    @GetMapping("/{id}")
+    public UsuarioDTO findById(@PathVariable Long id){
+        return servicio.findById(id);
+    }
     
     @PostMapping
-    public UsuarioEntity add(@RequestBody UsuarioEntity u){
+    public UsuarioDTO add(@RequestBody UsuarioDTO u){
         return servicio.add(u);
     }
     
     @PutMapping("/{id}")
-    public UsuarioEntity update(@PathVariable long id,@RequestBody UsuarioEntity u){
+    public UsuarioDTO update(@PathVariable long id,@RequestBody UsuarioDTO u){
         u.setIdusuario(id);
         return servicio.update(u);
     }
     
     @DeleteMapping("/{id}")
-    public UsuarioEntity delete(@PathVariable long id){
-        UsuarioEntity objusuario = new UsuarioEntity();
+    public UsuarioDTO delete(@PathVariable long id){
+        UsuarioDTO objusuario = new UsuarioDTO();
         objusuario.setIdusuario(id);
-        return servicio.delete(UsuarioEntity.builder().idusuario(id).build());
+        return servicio.delete(UsuarioDTO.builder().idusuario(id).build());
     }
 }
